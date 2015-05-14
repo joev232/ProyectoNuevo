@@ -147,7 +147,11 @@ public class ClaseLeeMails {
  	 
  	public static void main(String[] args) throws IOException { 
  		 
+
+ 		
  		long tiempo_inicio = System.currentTimeMillis();
+ 		
+
  		
  		String nombre = "fichero.txt";//el nombre del fichero de entrada 
  		String lista_mails = null; //aquí guardaré los mails, separados por la el símbolo / 
@@ -166,6 +170,12 @@ public class ClaseLeeMails {
  		
  		System.out.println("Duración = "+ ( tiempo_final-tiempo_inicio) +" milisegundos"); 
  		
+ 		Runtime runtime=Runtime.getRuntime();
+ 		System.out.println("Antes de la limpieza"+runtime.freeMemory());
+ 		runtime.gc();
+ 		
+ 		System.out.println(runtime.freeMemory());
+ 			
  		
  	} 
  	 
