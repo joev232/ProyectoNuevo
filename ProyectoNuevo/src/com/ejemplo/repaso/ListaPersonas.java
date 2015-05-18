@@ -14,7 +14,6 @@ public class ListaPersonas {
 	/**  
  +	 * Es muy posible que haga falta añadir algún campo más  
  +	 */  
-	  
 public ListaPersonas()  
 	{  	
 		//TODO HAY QUE HACER UN CONSTRUCTOR  
@@ -100,6 +99,7 @@ public ListaPersonas()
 	public void insertarPersona (Persona p) throws InsertarPersonaException  
 	{  
 		// se aplica equals
+		
 		
 	
 	}  
