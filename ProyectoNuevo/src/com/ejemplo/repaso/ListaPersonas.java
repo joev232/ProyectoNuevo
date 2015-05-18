@@ -16,9 +16,7 @@ public class ListaPersonas {
  +	 */  
 	  
 public ListaPersonas()  
-	{  
-	
-	
+	{  	
 		//TODO HAY QUE HACER UN CONSTRUCTOR  
 		//RECUERDA QUE EL CONSTRUCTOR SIRVE PARA  
 			//RESERVAR MEMORIA  
@@ -36,7 +34,7 @@ public ListaPersonas()
 		
 	}  
 	  
-	public Persona buscarPersona (String nombre)  
+	public Persona buscarPersona(String nombre)  
 	{  
 		//TODO BUSCAR PERSONA POR NOMBRE Y DEVOLVERLA  
 	//SI NO ESTÁ, DEVOLVER NULO  
@@ -57,8 +55,6 @@ public ListaPersonas()
 				persona=null;
 			}
 		}
-			
-		
 		return persona;  
 	}  
 	  
@@ -81,7 +77,6 @@ public ListaPersonas()
 			}else{
 				persona=null;
 			}
-			
 		}
 		return persona;  
 	}  
@@ -92,39 +87,66 @@ public ListaPersonas()
 		//para obtener de él el valor de la clave destino,   
 		//que representa el nombre del fichero de salida  
 		
-		
-		
-		
-		
+				
 		return false;  
 	}  
 	  
 	public boolean deserializar()  
 	{  
+		
 		return false;  
 	}  
 	  
 	public void insertarPersona (Persona p) throws InsertarPersonaException  
 	{  
+		// se aplica equals
 		
-	numerosper++;
+	
 	}  
+	
+	public boolean eliminarPersona(Persona p){
+		
+		//llamaria a buscarpersona
+		
+		
+		return false;
+	}
 	  
 	public int numeroPersonas()  
 	{  
 		
-		return 0;  
+		return this.numerosper++;  
 	}  
   
 	public boolean estaLlena()  
 	{  
-		return false;  
+		boolean estallena = false;
+		
+		if(estallena){
+			this.numerosper=CAPACIDAD;
+		}
+			
+		return estallena;  
 	}  
+	
+	public boolean estaVacia(){
+		
+		boolean estavacia=false;
+		if(estavacia){
+			this.numerosper=0;
+		}
+		
+		
+		return estavacia;
+	}
 	  
 	public void mostrar()  
 	{  
 		//TODO MOSTRAR LA LISTA DE PERSONAS  
-		// pista: ayudarse del método toString de persona  
+		// pista: ayudarse del método toString de persona
+		
+		//polimorfismo xq puedo pasar personas y alumnos y ya sysout tostringadecuado
+				
 	}  
   
 }  
