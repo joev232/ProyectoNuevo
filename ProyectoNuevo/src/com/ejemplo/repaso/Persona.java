@@ -7,6 +7,8 @@ public class Persona implements Serializable {
 	private String nombre;  
 	  
   
+	
+	
 	public Persona(String nombre, int edad) {  
 		this.edad = edad;  
 		this.nombre = nombre;  

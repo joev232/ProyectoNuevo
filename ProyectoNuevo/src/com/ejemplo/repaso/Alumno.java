@@ -15,7 +15,7 @@ public class Alumno extends Persona{
 		this.nombre_nota = TipoNota.traduceNota(nota);  
 		  
 	}  
-  
+	
   
 	public int getNota() {  
 		return nota;  

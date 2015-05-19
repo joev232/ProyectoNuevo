@@ -1,6 +1,7 @@
 package com.ejemplo.repaso;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MainListaPersonas {
 
@@ -22,5 +23,12 @@ public class MainListaPersonas {
 		for(Persona pers:persona){
 			System.out.println(pers);
 		}
+		//hace lo mismo q el for 
+		Iterator<Persona> i_personas=persona.iterator();
+		 while(i_personas.hasNext()){
+			 Persona p=i_personas.next();
+			 System.out.println(p);
+			 //i_personas.remove();
+		 }
 	}
 }

@@ -1,9 +1,13 @@
 package com.ejemplo.repaso;
 
 import java.io.ObjectOutputStream;
+import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+
 import com.ejemplo.repaso.exceptions.InsertarPersonaException;  
   
-public class ListaPersonas {  
+public class ListaPersonas implements Iterable{  
 	  
 	public static final int CAPACIDAD = 10;  
 	  
@@ -41,11 +45,10 @@ public ListaPersonas()
 		boolean encontrado=false;
 		boolean fin=false;
 		int cont=0;
-		
-		
-		while((!encontrado) && (!fin)){
-			
-			if(nombre.equals(array_personas[cont].getNombre())){
+		if( this.numerosper>0)
+		{
+		while((!encontrado)&&(cont<this.array_personas.length)){
+				if(nombre.equals(array_personas[cont].getNombre())){
 				persona=array_personas[cont];
 				encontrado=true;
 				
@@ -54,10 +57,11 @@ public ListaPersonas()
 				persona=null;
 			}
 		}
+		}
 		return persona;  
 	}  
-	  
-	public Persona busarPersona (int edad)  
+  
+	public Persona buscarPersona (int edad)  
 	{  
 		//TODO BUSCAR PERSONA POR EDAD Y DEVOLVERLA  
 		//SI NO ESTÁ, DEVOLVER NULO  
@@ -72,6 +76,7 @@ public ListaPersonas()
 				persona=array_personas[cont];
 				encontrado=true;
 				fin=true;
+				
 				cont++;		
 			}else{
 				persona=null;
@@ -146,7 +151,30 @@ public ListaPersonas()
 		// pista: ayudarse del método toString de persona
 		
 		//polimorfismo xq puedo pasar personas y alumnos y ya sysout tostringadecuado
-				
+		
+		
+		
+	}
+
+	@Override
+	public void forEach(Consumer arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Iterator iterator() {
+		// TODO Auto-generated method stub
+		
+		//hacer un new recorrer persona
+		//new RecorrerPersona
+		return null;
+	}
+
+	@Override
+	public Spliterator spliterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}  
   
 }  
