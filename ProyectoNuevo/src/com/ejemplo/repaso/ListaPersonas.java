@@ -1,9 +1,12 @@
 package com.ejemplo.repaso;
 
+import org.apache.log4j.Logger;
 import java.io.ObjectOutputStream;
 import java.util.Iterator;
 import java.util.Spliterator;
 import java.util.function.Consumer;
+
+import org.apache.log4j.Logger;
 
 import com.ejemplo.repaso.exceptions.InsertarPersonaException;  
   
@@ -14,6 +17,9 @@ public class ListaPersonas implements Iterable{
 	private Persona[] array_personas;  
 	
 	private int numerosper;
+	
+	private final static Logger log = Logger.getLogger("mylog");
+	
 	  
 	/**  
  +	 * Es muy posible que haga falta añadir algún campo más  
@@ -26,6 +32,7 @@ public ListaPersonas()
 			//INICIALIZAR EL ESTADO DEL OBJETO Y SUS ATRIBUTOS  
 	this.array_personas=new Persona[CAPACIDAD];
 	numerosper=0;
+	log.info("La lista ha sido creada");
 		
 	}  
 	  
@@ -155,6 +162,7 @@ public ListaPersonas()
 		
 		
 	}
+	
 
 	@Override
 	public void forEach(Consumer arg0) {
@@ -176,5 +184,6 @@ public ListaPersonas()
 		// TODO Auto-generated method stub
 		return null;
 	}  
+	
   
 }  

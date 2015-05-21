@@ -1,5 +1,6 @@
 package com.ejemplo.repaso;
 
+import org.apache.log4j.Logger;
 import java.awt.List;
 import java.awt.peer.SystemTrayPeer;
 import java.util.ArrayList;
@@ -16,11 +17,12 @@ import com.ejemplo.repaso.exceptions.NotaException;
 
 public class MainListas {
 	
+	private final static Logger log = Logger.getLogger("mylog");
 	//metodo q reciba hasmap y devuelva un map
 
 	public static void main(String[] args) throws NotaException {
 		
-	
+
 		
 //		ListaPersonas lp=new ListaPersonas();
 //		Persona persona=new Persona("carlos", 20);
@@ -50,6 +52,8 @@ public class MainListas {
 		//Persona per=new Persona(nombre, edad);
 		//para probar treeset
 		
+	
+		
 		Persona p=new Persona("Jose", 13);
 		Persona p2=new Persona("Carlos", 10);
 		Persona p3=new Persona("Ricardo", 17);
@@ -64,6 +68,8 @@ public class MainListas {
 		
 		Collections.sort(perso, new OrdenarPorNombre());
 		System.out.println(perso);
+		
+		log.info("Informando...");
 		
 //		OrdenarPorEdad comparador_edad = new OrdenarPorEdad();
 //		Collections.sort(perso,comparador_edad);
