@@ -30,16 +30,19 @@ public class ProcesoSAX {
 			//reader.setErrorHandler(arg0);
 			// Procesamos el xml de ejemplo  
 			//reader.parse(new InputSource(new FileInputStream("libro.xml")));
-			reader.parse(new InputSource(new FileInputStream("libro.xml")));
+			reader.parse(new InputSource(new FileInputStream("libros.xml")));
 
 			//Libro li=new Libro();
-			HashMap<String , Libro> maplibro=new HashMap<String,Libro>();
-			maplibro.put(libro.getIsbn(),libro);
+			HashMap<String , Libro> maplibro=libroXML.getMapalibros();
+			System.out.println("VOY A MOSTRAR LA COLECCIÓN DE LIBROS");
+			System.out.println("VOY A MOSTRAR LA COLECCIÓN DE LIBROS");
+			System.out.println("VOY A MOSTRAR LA COLECCIÓN DE LIBROS");
+			System.out.println("VOY A MOSTRAR LA COLECCIÓN DE LIBROS");
+			
 			System.out.println(maplibro);
+					
 			
-			
-			
-			System.out.println(libro.toString());           
+			//System.out.println(libro.toString());           
 		} catch (SAXException e) {  
 			e.printStackTrace();  
 		} catch (IOException e) {  

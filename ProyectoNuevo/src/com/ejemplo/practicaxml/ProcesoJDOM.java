@@ -49,8 +49,15 @@ public class ProcesoJDOM {
 	    // Añadimos un atributo  
 	    nuevolibro.setAttribute("isbn", "xxxx-yyyy");  
 	    padre.addContent(nuevolibro);  
-
 	    
+	    
+	    
+	    Element titulo = new Element("titulo");
+	    titulo.addContent("Los juegos");
+	    nuevolibro.addContent(titulo);
+	    //padre.addContent(nuevolibro);
+	    
+//	    
 	   //SERIALIZO EL DOCUMENT A UN FICHERO DE SALIDA
 	    
 	    Format format = Format.getPrettyFormat();

@@ -3,6 +3,8 @@ package com.ejemplo.practicaxml;
 
 import java.util.HashMap;
 
+import javax.xml.stream.events.StartElement;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -11,26 +13,37 @@ import org.xml.sax.helpers.DefaultHandler;
 public class LibroXML extends DefaultHandler{
 	private String valor = null;  
 
-	private Libro libro;  
+	private Libro libro; 
+	private HashMap<String, Libro> mapalibros;
+
+	public HashMap<String, Libro> getMapalibros() {
+		return mapalibros;
+	}
+
+	public void setMapalibros(HashMap<String, Libro> mapalibros) {
+		this.mapalibros = mapalibros;
+	}
 
 	public LibroXML(Libro libro){  
-		this.libro=libro;  
+		this.mapalibros= new HashMap<>(); 
 	}  
 
 	@Override  
 	public void startElement(String uri, String localName, String name,  
 			Attributes attributes) throws SAXException {  
 
+
 		// Limpiamos la variable temporal.  
 		valor=null;  
 
 		// Si la etiqueta es libro leemos el atributo isbn  
 		if(localName.equals("libro")){  
+			this.libro=new Libro();
 			String isbn = attributes.getValue("isbn");  
-			// Lo guardamos en el objeto libro  
-			libro.setIsbn(isbn);  
+			// Lo guardamos en el objeto libro
+			this.libro.setIsbn(isbn);
 		}
-			
+
 	}  
 
 	@Override  
@@ -38,7 +51,8 @@ public class LibroXML extends DefaultHandler{
 			throws SAXException {  
 		// Guardamos el texto en la variable temporal  
 		valor = new String(ch,start,length);  
-		System.out.println(valor);
+		//System.out.println(valor);
+
 	}  
 
 	@Override  
@@ -55,7 +69,9 @@ public class LibroXML extends DefaultHandler{
 			libro.setAnyo(valor);  
 		}else if (localName.equals("editorial")){  
 			libro.setEditorial(valor);  
-		}  
+		} else if (localName.equals("libro")){
+			mapalibros.put(this.libro.getIsbn(), libro);
+		} 
 
 	}  
 
