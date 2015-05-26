@@ -7,6 +7,8 @@ public class Libro {
 	private String anyo;  
 	private String editorial;  
 
+	
+	
 	// Constructor por defecto  
 	public Libro() {  
 
