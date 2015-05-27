@@ -96,8 +96,9 @@ public class ProcesoJDOM {
 				xml_doc.getRootElement();
 	
 				
-				for(int i=0;i<arraylibro.size();i++){
-
+				//for(int i=0;i<arraylibro.size();i++){
+				
+										
 				//sformarLibroAElemento(libro);
 					
 					//e_raiz.addcontent(e_libro);
