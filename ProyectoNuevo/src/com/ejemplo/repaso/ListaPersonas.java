@@ -1,8 +1,14 @@
 package com.ejemplo.repaso;
 
 import org.apache.log4j.Logger;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.Iterator;
+import java.util.Properties;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
@@ -92,16 +98,45 @@ public ListaPersonas()
 		return persona;  
 	}  
 	  
-	public boolean serializar ()  
-	{  
+	public boolean serializar (){
+
 		//Hacer uso del fichero de propiedades serializa.properties,   
 		//para obtener de él el valor de la clave destino,   
 		//que representa el nombre del fichero de salida  
 		
-				
-		return false;  
+		boolean serializa = true; 
+		Properties properties = new Properties(); 
+		try { 
+			properties.load(new FileInputStream("serializa.properties")); 
+		} catch (FileNotFoundException e) { 
+			// TODO Auto-generated catch block 
+			serializa = false; 
+			e.printStackTrace(); 
+		} catch (IOException e) { 
+			// TODO Auto-generated catch block 
+			serializa = false; 
+			e.printStackTrace(); 
+		} 
+
+		String ficheroDestino = properties.getProperty("destino"); 
+		try { 
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ficheroDestino)); 
+			oos.writeObject(this); 
+			oos.close(); 
+
+		} catch (FileNotFoundException e) { 
+			// TODO Auto-generated catch block 
+			serializa = false; 
+			e.printStackTrace(); 
+		} catch (IOException e) { 
+			// TODO Auto-generated catch block 
+			serializa = false; 
+			e.printStackTrace(); 
+		} 
+		return serializa; 
 	}  
-	  
+	
+	
 	public boolean deserializar()  
 	{  
 		
@@ -111,10 +146,36 @@ public ListaPersonas()
 	public void insertarPersona (Persona p) throws InsertarPersonaException  
 	{  
 		// se aplica equals
-		
-		
-	
-	}  
+		if (buscarPersona(p.getNombre())==null) 
+			 		{ 
+			 			System.out.println(p.getNombre() + " NO encontrado"); 
+			 			if (!estaLlena()) 
+			 			{ 
+			 				System.out.println("Insertando a "+p.getNombre()); 
+			 				int i = 0; 
+			 				boolean insertado = false; 
+			 				do 
+							{ 
+			 					if (array_personas[i]==null) 
+			 					{ 
+			 						array_personas[i] = p; 
+			 						insertado = true; 
+			 					} 
+			 					i++; 
+			 				}while ((insertado == false)&&(this.array_personas[i]==null)&&(i<this.array_personas.length)); 
+			 				this.numerosper++; 
+			 			} 
+			 			else 
+			 			{ 
+			 				System.out.println("La lista esta llena, "+p.getNombre() + " no se ha podido insertar"); 
+			 				throw new InsertarPersonaException(); 
+			 			} 
+			 		} 
+			 		else 
+			 		{ 
+			 			System.out.println(p.getNombre() + " ya existe"); 
+			 		} 
+			 	} 
 	
 	public boolean eliminarPersona(Persona p){
 		
@@ -134,22 +195,21 @@ public ListaPersonas()
 	{  
 		boolean estallena = false;
 		
-		if(estallena){
-			this.numerosper=CAPACIDAD;
-		}
+		if(this.numerosper==CAPACIDAD){
+			estallena=true;
+			}
 			
-		return estallena;  
+		return estallena; 
+		
 	}  
 	
 	public boolean estaVacia(){
 		
-		boolean estavacia=false;
-		if(estavacia){
-			this.numerosper=0;
-		}
-		
-		
-		return estavacia;
+//		boolean estavacia=false;
+//		if(estavacia){
+//			this.numerosper=0;
+//		}
+		return this.numerosper==0;
 	}
 	  
 	public void mostrar()  
@@ -158,9 +218,6 @@ public ListaPersonas()
 		// pista: ayudarse del método toString de persona
 		
 		//polimorfismo xq puedo pasar personas y alumnos y ya sysout tostringadecuado
-		
-		
-		
 	}
 	
 

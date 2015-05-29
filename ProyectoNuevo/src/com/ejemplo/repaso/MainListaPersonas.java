@@ -2,18 +2,20 @@ package com.ejemplo.repaso;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class MainListaPersonas {
 
 	
 	public static void main(String[] args) {
 		
-		ArrayList<Persona> persona=new ArrayList<Persona>();
-		Persona pe=new Persona("Alba", 28);
+		List<Persona> persona=new ArrayList<Persona>();
 		
+		Persona pe=new Persona("Alba", 28);
 		persona.add(new Persona("Carlos",20));
 		persona.add(new Persona("Ricardo", 15));
 		persona.add(new Persona("Sebastian", 19));
+
 		persona.add(pe);
 		//recibe indice arrarlist
 		persona.remove(2);

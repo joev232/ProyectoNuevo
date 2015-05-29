@@ -5,9 +5,6 @@ public class Persona implements Serializable,Comparable<Persona> {
 	  
 	private int edad;  
 	private String nombre;  
-	  
-  
-	
 	
 	public Persona(String nombre, int edad) {  
 		this.edad = edad;  
