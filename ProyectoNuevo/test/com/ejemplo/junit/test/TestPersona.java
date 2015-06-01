@@ -18,11 +18,9 @@ public class TestPersona {
 		p = new Persona("jesus", 21);
 	}
 	
-	
-	
 	@Test
 	public void testGetEdad() {
-		int edad=20;
+		int edad=21;
 		assertTrue(edad==p.getEdad());
 	}
 	

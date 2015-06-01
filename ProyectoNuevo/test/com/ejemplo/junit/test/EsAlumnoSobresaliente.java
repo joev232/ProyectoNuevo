@@ -1,29 +1,27 @@
 package com.ejemplo.junit.test; 
-import org.hamcrest.Description; 
-import org.hamcrest.TypeSafeMatcher; 
 
- 
+import org.hamcrest.Description;
+import org.hamcrest.Factory;
+import org.hamcrest.Matcher;
+
 import com.ejemplo.repaso.Alumno; 
 import com.ejemplo.repaso.TipoNota; 
  
 
-
-
-public class EsAlumnoSobresaliente extends TypeSafeMatcher<Alumno>{
+public class EsAlumnoSobresaliente extends org.junit.internal.matchers.TypeSafeMatcher<Alumno>{
 
 	
 	TipoNota nota = null;
 	
-	@Override
 	public void describeTo(Description descripcion) {
 		descripcion.appendText("Resultado esperado: alumno con " + TipoNota.SOBRESALIENTE+"\n");
 		descripcion.appendText("Obtenido alumno:" + this.nota);
-
 		
 	}
+	
 
 	@Override
-	protected boolean matchesSafely(Alumno alumno) {
+	public boolean matchesSafely(Alumno alumno) {
 		boolean b_dev = false;
 		//NOTA: ESTE ALUMNO, ES EL PRIMER PARÁMETRO DE LA LLAMADA
 		//Assert.assertThat(alumno, (new EsAlumnoSobresaliente()));

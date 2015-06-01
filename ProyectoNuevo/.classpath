@@ -11,5 +11,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/alumno/Desktop/jdom-2.0.6/jdom-2.0.6-javadoc.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/alumno/Documents/jdbc/ojdbc14.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
