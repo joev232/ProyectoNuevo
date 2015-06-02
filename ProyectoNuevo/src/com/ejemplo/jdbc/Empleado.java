@@ -120,9 +120,15 @@ public class Empleado {
 	public void setDepartament_id(int departament_id) {
 		this.departament_id = departament_id;
 	}
-	
-
-	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		StringBuilder sb = new StringBuilder(); //tipo de String más rápido en añadir! 
+		sb.append("\nEmployeeID: "+employee_id );
+		sb.append("\nFist Name: "+first_name );
+		
+		
+		return sb.toString();
+	}
 
 }
