@@ -11,6 +11,13 @@ public class RegionsDTO {
 		this.region_name = region_name;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		
+		return region_id + "\t \t " + region_name;
+	}
+	
 	public int getRegion_id() {
 		return region_id;
 	}

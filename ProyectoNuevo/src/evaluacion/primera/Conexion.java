@@ -8,10 +8,17 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Savepoint;
 import java.sql.Statement;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+
+/**
+ * 
+ * @author alumno 
+ *
+ */
 
 public class Conexion {
 
@@ -20,7 +27,7 @@ public class Conexion {
 	private Connection connection;
 	private final String RUTA_PROPERTIES = "db.properties";
 	private Logger log = Logger.getLogger("mylog");
-	
+	Savepoint sp=null;
 	
 	
 	private Conexion () {
@@ -35,6 +42,9 @@ public class Conexion {
 			Class.forName(s_driver);
 			DriverManager.registerDriver((Driver) Class.forName(s_driver).newInstance());
 			this.connection = DriverManager.getConnection(cadena_conexion, usuario, contrasenia);
+			//connection.setAutoCommit(false);
+			//savepoint punto de guyarda
+			//sp=connection.setSavepoint();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			log.error("Fichero de properties no encontrado");
@@ -43,6 +53,7 @@ public class Conexion {
 			log.error("Fichero de properties no encontrado");
 		} catch (SQLException e) {
 			e.printStackTrace();
+			
 			log.error("Error al intentar conectar a la base de datos");
 		} catch (ClassNotFoundException e) {
 			log.error("Error al intentar conectar a la base de datos: driver no encontrado");
@@ -50,8 +61,17 @@ public class Conexion {
 			log.error("Error al instanciar el driver");
 		} catch (IllegalAccessException e) {
 			log.error("Error al instanciar el driver");
-		}
-				
+//		} catch (Exception e){
+//			try {
+//				//Se deshace hasta punto 
+//				connection.rollback(sp);
+//			} catch (SQLException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			} 
+//			e.printStackTrace();
+	}
+					
 	}
 	
 	public static Connection obtenerConexion ()
