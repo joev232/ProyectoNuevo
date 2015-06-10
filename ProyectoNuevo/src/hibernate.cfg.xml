@@ -19,9 +19,11 @@
         <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
 
         <!-- Echo all executed SQL to stdout -->
+        <!-- show_sql para ver q efecto tiene nuestro proyecto insert select en bd -->
         <property name="show_sql">true</property>
 
         <!-- Mapping files -->
+        <!-- eso lo busca en src como directorio raiz se puede configuirar en las clases -->
         <mapping resource="Region.hbm.xml"/>
     </session-factory>
 

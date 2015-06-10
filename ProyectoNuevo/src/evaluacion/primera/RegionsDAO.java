@@ -80,7 +80,6 @@ public class RegionsDAO {
  			pst = con.prepareStatement(InstruccionSQL.RECUPERAR_REGIONES); 
  			pst.setInt(1, region_id); 
  			rs = pst.executeQuery(); 
- 			 
  			while (rs.next()) { 
  				region = new RegionsDTO(rs.getInt(1), rs.getString(2)); 
  			} 
@@ -89,10 +88,9 @@ public class RegionsDAO {
  			log.error("Error al recuperar id"); 
  			throw e; 
  		} finally { 
-			//Conexion.liberarRecursos(con, pst, rs);
+			Conexion.liberarRecursos(con, pst, rs);
  		}
-	
- 		return region; 
+		return region; 
 	}
 //			Connection conexion = null; 
 //	 		Statement stmt = null; 

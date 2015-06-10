@@ -102,7 +102,8 @@ public class ClaseLeeMails {
  		String [] array_mails = null; 
  		 
  		//Recibo un String que contiene TODOS los mails, separados por una / ej: mail1/mail2/ 
- 		//Tengo que separarlos y devolver un array de Mails PISTA --> método split de la clase String 
+ 		//Tengo que separarlos y devolver un array de Mails PISTA --> método split de la clase String
+ 		//array
  		array_mails = lista_mails.split("/"); 
  		
  		return array_mails; 

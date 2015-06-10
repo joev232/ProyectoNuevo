@@ -22,7 +22,9 @@ public class MainRegiones {
 			List<RegionsDTO> lista_reg=RegionsDAO.obteneConsulta();
 			//System.out.println(lista_reg);
 			
+			
 			System.out.println(RegionsDAO.recuperarRegions(1));
+			
 			//System.out.println(RegionDAO.leerRegion(5));
 			//Prueba de consultar regions por id
 //			List<RegionsDTO> lista_regiones=new ArrayList<RegionsDTO>();
